@@ -8,6 +8,8 @@ db = pymysql.connect(host='ec2-13-209-17-166.ap-northeast-2.compute.amazonaws.co
 
 start =100
 end = 150
+start = 0
+end = 100
 l = [i for i in range(start, end)]
 random.shuffle(l)
 lis2=[]
@@ -22,7 +24,8 @@ for i in l:
     trs = table.find_all('tr')
     cc = soup.find('div',{'class','r5 box chart'})
     if cc is None:
-        continue;
+       continue
+
     tt = cc.find('p')
 
     if trs[0].find('td').text == '':
@@ -73,5 +76,5 @@ for i in l:
     cursor.execute(str)
     db.commit()
 data = pd.DataFrame(lis2)
-data.columns = ['인덱스','음식명', '단위', '칼로리', '탄수화물','단백질','지방','당류','나트륨']
-data.to_csv('음식4.csv', encoding='utf-8')
+data.columns = ['index','name', 'unit', 'cal', 'carbs','protein','fat','sugar','salt']
+data.to_csv('food6.csv', encoding='utf-8')
