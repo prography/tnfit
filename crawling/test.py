@@ -3,9 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import random
+import re # 정규표현식 모듈
 
-start = 1501
-end = 2000
+start = 0
+end = 100
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -32,6 +33,13 @@ for i in l:
     for tr in trs:
         th = tr.find('th').text
         td = tr.find('td').text.strip()
+        if th == "단위":
+            # 1인분(180g)을 1/인분/180g으로 분리하여 저장
+            two = td.split("(")
+            g = re.compile('[0-9.]*')
+            g1 = g.search(two[1])
+        # elif th == "칼로리":
+        #     print("칼로리")
         lis.append(td)
 
     gram = tt.find_all('span')
@@ -53,4 +61,4 @@ for i in l:
     lis2.append(lis)
 data = pd.DataFrame(lis2)
 data.columns = ['index','name', 'unit', 'cal', 'carbs','protein','fat','sugar','salt']
-data.to_csv('food2.csv', encoding='utf-8')
+data.to_csv('food1.csv', encoding='utf-8')
