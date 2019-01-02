@@ -1,10 +1,10 @@
-1. 회원가입 - 차영 join.js
+1. 회원가입 - 같이 join.js
 
-2. 로그인 - 예은 login.js
+2. 로그인 - 같이 login.js
 
-3. 로그아웃 - 예은 logout.js
+3. 로그아웃 - 같이 logout.js
 
-4. 회원탈퇴 - 차영 withdrawal.js
+4. 회원탈퇴 - 같이 withdrawal.js
 
 5. 비번 찾기 - 같이 findPw.js
 

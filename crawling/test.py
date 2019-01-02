@@ -2,15 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import random
-import pymysql
 
-start =100
-end = 150
+start =0
+end = 500
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
 lis2=[]
-a=0
 for i in l:
     lis = []
     page = requests.get('http://www.dietshin.com/calorie/calorie-foodview.asp?cal_idx=' + str(i) + '&cal_type=F')
@@ -26,9 +24,10 @@ for i in l:
 
     if trs[0].find('td').text == '':
          continue
-    lis.append(a)
-    a = a + 1
+    lis.append(i)
     for tr in trs:
+        th = tr.find('th').text
+        td = tr.find('td').text.strip()
         lis.append(td)
 
     gram = tt.find_all('span')
