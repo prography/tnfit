@@ -1,11 +1,11 @@
+#-*- coding:utf-8 -*-
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import random
-import pymysql
 
-start =100
-end = 150
+start = 1501
+end = 2000
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -14,6 +14,7 @@ a=0
 for i in l:
     lis = []
     page = requests.get('http://www.dietshin.com/calorie/calorie-foodview.asp?cal_idx=' + str(i) + '&cal_type=F')
+    page.encoding = 'utf-8'
     pageText = page.text
     soup = BeautifulSoup(pageText, 'html.parser')
     table = soup.find('table', {'class': 'tbl-y'})
@@ -26,9 +27,11 @@ for i in l:
 
     if trs[0].find('td').text == '':
          continue
-    lis.append(a)
+    lis.append(i)
     a = a + 1
     for tr in trs:
+        th = tr.find('th').text
+        td = tr.find('td').text.strip()
         lis.append(td)
 
     gram = tt.find_all('span')
@@ -50,4 +53,4 @@ for i in l:
     lis2.append(lis)
 data = pd.DataFrame(lis2)
 data.columns = ['index','name', 'unit', 'cal', 'carbs','protein','fat','sugar','salt']
-data.to_csv('food6.csv', encoding='utf-8')
+data.to_csv('food2.csv', encoding='utf-8')
