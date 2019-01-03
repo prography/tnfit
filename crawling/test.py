@@ -5,8 +5,8 @@ import pandas as pd
 import random
 import re # 정규표현식 모듈
 
-start = 10
-end = 100
+start = 1486
+end = 1500
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -53,8 +53,8 @@ for i in l:
             lis.append(num)
         if th == "칼로리":
             length = len(td)
-            lis.append(td[0:length-4])
-            print(td[0:length-4])
+            lis.append(td[0:length-4].strip())
+            #print(td[0:length-4])
 
     gram = tt.find_all('span')
     t = tt.find("strong",{'class':'blue'}).text
@@ -63,7 +63,8 @@ for i in l:
         lis.append(tg[0:len(tg)-1])
     elif "%" in tg:
         num2 = tg[0:len(tg)-1]
-        lis.append(float(num)*(float(num2)/100))
+        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        lis.append(num3)
     else:
         lis.append(tg)
     d = tt.find("strong", {'class': 'green'}).text
@@ -72,7 +73,8 @@ for i in l:
         lis.append(dg[0:len(dg)-1])
     elif "%" in dg:
         num2 = dg[0:len(dg)-1]
-        lis.append(float(num)*(float(num2)/100))
+        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        lis.append(num3)
     else:
         lis.append(dg)
     g = tt.find("strong", {'class': 'orange'}).text
@@ -81,7 +83,8 @@ for i in l:
         lis.append(gg[0:len(gg)-1])
     elif "%" in gg:
         num2 = gg[0:len(gg)-1]
-        lis.append(float(num)*(float(num2)/100))
+        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        lis.append(num3)
     else:
         lis.append(gg)
     da = tt.find("strong", {'class': 'yellow'}).text
@@ -89,8 +92,9 @@ for i in l:
     if "g" in dag:
         lis.append(dag[0:len(dag)-1])
     elif "%" in dag:
-        num2 = tg[0:len(dag)-1]
-        lis.append(float(num)*(float(num2)/100))
+        num2 = dag[0:len(dag)-1]
+        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        lis.append(num3)
     else:
         lis.append(tg)
     n = tt.find("strong", {'class': 'purple'}).text
@@ -100,4 +104,4 @@ for i in l:
 
 data = pd.DataFrame(lis2)
 data.columns = ['index','name','cnt', 'unit','gram', 'cal', 'carbs','protein','fat','sugar','salt']
-data.to_csv('food1.csv', encoding='utf-8')
+data.to_csv('food0.csv', encoding='utf-8')
