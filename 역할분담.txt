@@ -1,33 +1,33 @@
-1. È¸¿ø°¡ÀÔ - °°ÀÌ join.js
+1. íšŒì›ê°€ìž… - ê°™ì´ join.js
 
-2. ·Î±×ÀÎ - °°ÀÌ login.js
+2. ë¡œê·¸ì¸ - ê°™ì´ login.js
 
-3. ·Î±×¾Æ¿ô - °°ÀÌ logout.js
+3. ë¡œê·¸ì•„ì›ƒ - ê°™ì´ logout.js
 
-4. È¸¿øÅ»Åð - °°ÀÌ withdrawal.js
+4. íšŒì›íƒˆí‡´ - ê°™ì´ withdrawal.js
 
-5. ºñ¹ø Ã£±â - °°ÀÌ findPw.js
+5. ë¹„ë²ˆ ì°¾ê¸° - ê°™ì´ findPw.js
 
-6. ¸¶ÀÌÆäÀÌÁö º¸¿©ÁÖ±â - Â÷¿µ show.js
+6. ë§ˆì´íŽ˜ì´ì§€ ë³´ì—¬ì£¼ê¸° - ì°¨ì˜ show.js
 
-7. ¸¶ÀÌÆäÀÌÁö ¼öÁ¤ÇÏ±â - ¿¹Àº edit.js
+7. ë§ˆì´íŽ˜ì´ì§€ ìˆ˜ì •í•˜ê¸° - ì˜ˆì€ edit.js
 
-8. Ä£±¸¿äÃ» ¸ñ·Ïº¸±â - ¿¹Àº requeslist.js
+8. ì¹œêµ¬ìš”ì²­ ëª©ë¡ë³´ê¸° - ì˜ˆì€ requeslist.js
 
-9. Ä£±¸¿äÃ» ¼ö¶ô/°ÅÀý - ¿¹Àº accept.js
+9. ì¹œêµ¬ìš”ì²­ ìˆ˜ë½/ê±°ì ˆ - ì˜ˆì€ accept.js
 
-10. Ä£±¸ ½Ä´Ü º¸±â - ¿¹Àº frienddiet.js
+10. ì¹œêµ¬ ì‹ë‹¨ ë³´ê¸° - ì˜ˆì€ frienddiet.js
 
-11. Ä£±¸ ¸ñ·Ï ÆíÁý(»èÁ¦, °ø°³¿©ºÎ ¼öÁ¤) - ¿¹Àº editlist.js
+11. ì¹œêµ¬ ëª©ë¡ íŽ¸ì§‘(ì‚­ì œ, ê³µê°œì—¬ë¶€ ìˆ˜ì •) - ì˜ˆì€ editlist.js
 
-12. À¯Àú°Ë»ö - Â÷¿µ search.js
+12. ìœ ì €ê²€ìƒ‰ - ì°¨ì˜ search.js
 
-13. À¯Àú Ä£±¸ Ãß°¡ ¿äÃ»(Å×ÀÌºí¿¡ ³Ö°í ¸¶ÀÌÆäÀÌÁö ¾Ë¸² ¼ö Áõ°¡) - Â÷¿µ request.js
+13. ìœ ì € ì¹œêµ¬ ì¶”ê°€ ìš”ì²­(í…Œì´ë¸”ì— ë„£ê³  ë§ˆì´íŽ˜ì´ì§€ ì•Œë¦¼ ìˆ˜ ì¦ê°€) - ì°¨ì˜ request.js
 
-14. ³» Ä£±¸ ¸ñ·Ï º¸±â - Â÷¿µ friendlist.js
+14. ë‚´ ì¹œêµ¬ ëª©ë¡ ë³´ê¸° - ì°¨ì˜ friendlist.js
 
-15. ½Ä´Ü ÀÔ·Â - ¿¹Àº - insert.js
+15. ì‹ë‹¨ ìž…ë ¥ - ì˜ˆì€ - insert.js
 
-16. ¿µ¾çÁ¤º¸ º¸¿©ÁÖ±â (À½½Äº°) - Â÷¿µ - showdiet.js
+16. ì˜ì–‘ì •ë³´ ë³´ì—¬ì£¼ê¸° (ìŒì‹ë³„) - ì°¨ì˜ - showdiet.js
 
-17.18 ÀÏ, ÁÖº° Ä®·Î¸® Á¤º¸ º¸¿©ÁÖ±â - Â÷¿µ -showday.js, showweek.js
+17.18 ì¼, ì£¼ë³„ ì¹¼ë¡œë¦¬ ì •ë³´ ë³´ì—¬ì£¼ê¸° - ì°¨ì˜ -showday.js, showweek.js
