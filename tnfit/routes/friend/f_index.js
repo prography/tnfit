@@ -6,7 +6,7 @@ var router = express.Router();
 // router.use('/frienddiet', require('./frienddiet.js'));
 // router.use('/friendlist', require('./friendlist.js'));
 // router.use('/request', require('./request.js'));
-// router.use('/requestlist', require('./requestlist.js'));
+router.use('/requestlist', require('./requestlist.js'));
 // router.use('/search', require('./search.js'));
 
 module.exports = router;

@@ -5,8 +5,8 @@ import pandas as pd
 import random
 import re # 정규표현식 모듈
 
-start = 1486
-end = 1500
+start = 3001
+end = 4000
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -104,4 +104,4 @@ for i in l:
 
 data = pd.DataFrame(lis2)
 data.columns = ['index','name','cnt', 'unit','gram', 'cal', 'carbs','protein','fat','sugar','salt']
-data.to_csv('food0.csv', encoding='utf-8')
+data.to_csv('3001-4000.csv', encoding='utf-8')
