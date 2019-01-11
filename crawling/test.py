@@ -6,7 +6,7 @@ import random
 import re # 정규표현식 모듈
 
 start = 1001
-end = 2000
+end = 1010
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -39,7 +39,7 @@ for i in l:
             first = wunit[0] #1개 , 0.5인분
             second = wunit[1][0:-1] # 180g, 200ml
 
-            cnt_temp = re.match('[0-9.]', first)
+            cnt_temp = re.match('[0-9.]+', first)
             cnt = cnt_temp.group()
             lis.append(cnt)
             cunit = first[len(cnt):]
