@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// router.use('/accept', require('./accept.js'));
+router.use('/accept', require('./accept.js'));
 // router.use('/editlist', require('./editlist.js'));
 // router.use('/frienddiet', require('./frienddiet.js'));
 // router.use('/friendlist', require('./friendlist.js'));

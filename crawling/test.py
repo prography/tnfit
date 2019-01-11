@@ -5,8 +5,8 @@ import pandas as pd
 import random
 import re # 정규표현식 모듈
 
-start = 3001
-end = 4000
+start = 1001
+end = 2000
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -35,68 +35,70 @@ for i in l:
             lis.append(td)
         if th == "단위":
             # 1인분(180g)을 1/인분/180g으로 분리하여 저장
-            two = td.split("(")
-            two2 = two[1]
-            one = two[0] #1개 , 0.5인분
-            if "." in one:
-                split = one.split(".")
-                s1 = split[1];
-                aa = split[0]+"."+s1[0:1]
-                lis.append(aa)
-            else:
-                cnt = one[0:1]
-                lis.append(cnt)
-            unit = one[1:]
-            lis.append(unit)
-            two3 = two2.split("g")
-            num = two3[0]
-            lis.append(num)
+            wunit = td.split("(")
+            first = wunit[0] #1개 , 0.5인분
+            second = wunit[1][0:-1] # 180g, 200ml
+
+            cnt_temp = re.match('[0-9.]', first)
+            cnt = cnt_temp.group()
+            lis.append(cnt)
+            cunit = first[len(cnt):]
+            lis.append(cunit)
+
+            vol_temp = re.match('[0-9]+', second)
+            vol = vol_temp.group()
+            lis.append(vol)
+
         if th == "칼로리":
             length = len(td)
             lis.append(td[0:length-4].strip())
-            #print(td[0:length-4])
 
     gram = tt.find_all('span')
+
     t = tt.find("strong",{'class':'blue'}).text
     tg = gram[0].text
     if "g" in tg:
         lis.append(tg[0:len(tg)-1])
     elif "%" in tg:
-        num2 = tg[0:len(tg)-1]
-        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        num2 = tg[0:len(tg)-1] # 66%
+        num3 = float("{0:.2f}".format(float(cnt)*float(vol)*(float(num2)/100)))
         lis.append(num3)
     else:
         lis.append(tg)
+
     d = tt.find("strong", {'class': 'green'}).text
     dg = gram[1].text
     if "g" in dg:
         lis.append(dg[0:len(dg)-1])
     elif "%" in dg:
         num2 = dg[0:len(dg)-1]
-        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        num3 = float("{0:.2f}".format(float(cnt)*float(vol)*(float(num2)/100)))
         lis.append(num3)
     else:
         lis.append(dg)
+
     g = tt.find("strong", {'class': 'orange'}).text
     gg = gram[2].text
     if "g" in gg:
         lis.append(gg[0:len(gg)-1])
     elif "%" in gg:
         num2 = gg[0:len(gg)-1]
-        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        num3 = float("{0:.2f}".format(float(cnt)*float(vol)*(float(num2)/100)))
         lis.append(num3)
     else:
         lis.append(gg)
+
     da = tt.find("strong", {'class': 'yellow'}).text
     dag = gram[3].text
     if "g" in dag:
         lis.append(dag[0:len(dag)-1])
     elif "%" in dag:
         num2 = dag[0:len(dag)-1]
-        num3 = float("{0:.2f}".format(float(num)*(float(num2)/100)))
+        num3 = float("{0:.2f}".format(float(cnt)*float(vol)*(float(num2)/100)))
         lis.append(num3)
     else:
         lis.append(tg)
+
     n = tt.find("strong", {'class': 'purple'}).text
     ng = gram[4].text
     lis.append(ng[0:len(ng)-2])
@@ -104,4 +106,4 @@ for i in l:
 
 data = pd.DataFrame(lis2)
 data.columns = ['index','name','cnt', 'unit','gram', 'cal', 'carbs','protein','fat','sugar','salt']
-data.to_csv('3001-4000.csv', encoding='utf-8')
+data.to_csv('1001-2000.csv', encoding='utf-8')
