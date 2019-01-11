@@ -7,6 +7,7 @@ router.post('/', async (req, res) => {
    let myId = req.body.myId;
    let friendId = req.body.friendId;
    let accept = req.body.accept; // 0이면 reject, 1이면 accept
+   let open = req.body.open;
 
    if (!friendId) {
       res.status(400).send({
@@ -14,32 +15,36 @@ router.post('/', async (req, res) => {
       });
    } else {
      if (accept == 0){
-       let requestQuery = 'DELETE FROM request WHERE r_me = myId AND r_friend = friendId; UPDATE user SET u_frequest = u_frequest-1 WHERE u_id = myId';
-       let requestResult = await db.queryParam_Arr(requestQuery, [myId]);
+       let requestQuery1 = 'DELETE FROM request WHERE r_me = ? AND r_friend = ?;';
+       let requestQuery2 = 'UPDATE user SET u_frequest = u_frequest - 1 WHERE u_id = ?;'
+       let requestResult1 = await db.queryParam_Arr(requestQuery1, [myId, friendId]);
+       let requestResult2 = await db.queryParam_Arr(requestQuery2, [myId]);
 
-       if (!requestResult) {
+       if (!requestResult1 || !requestResult2) {
          res.status(500).send({
            message : "Server error"
          });
        } else {
          res.status(201).send({
-           message : "ok",
-           data : [{friendNicknames:requestResult}]
+           message : "ok"
          });
        }
      }
      else { // accept == 1
-       let requestQuery = 'SELECT user.u_nickname FROM user, request WHERE request.r_me = ? AND request.r_friend = user.u_id;'
-       let requestResult = await db.queryParam_Arr(requestQuery, [myId]);
+       let requestQuery1 = 'INSERT INTO friendList(l_me, l_friend, l_open) VALUES (?, ?, ?);';
+       let requestQuery2 = 'DELETE FROM request WHERE r_me = ? AND r_friend = ?;';
+       let requestQuery3 = 'UPDATE user SET u_frequest = u_frequest - 1 WHERE u_id = ?;'
+       let requestResult1 = await db.queryParam_Arr(requestQuery1, [myId, friendId, open]);
+       let requestResult2 = await db.queryParam_Arr(requestQuery2, [myId, friendId]);
+       let requestResult3 = await db.queryParam_Arr(requestQuery3, [myId]);
 
-       if (!requestResult) {
+       if (!requestResult1 || !requestResult2 || !requestResult3) {
          res.status(500).send({
            message : "Server error"
          });
        } else {
          res.status(201).send({
-           message : "ok",
-           data : [{friendNicknames:requestResult}]
+           message : "ok"
          });
        }
      }
