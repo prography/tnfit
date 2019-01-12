@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
    let accept = req.body.accept; // 0이면 reject, 1이면 accept
    let open = req.body.open;
 
-   if (!friendId) {
+   if (!friendId || !myId) {
       res.status(400).send({
          message : "Null Value"
       });

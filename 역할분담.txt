@@ -18,7 +18,7 @@
 
 10. 친구 식단 보기 - 예은 frienddiet.js
 
-11. 친구 목록 편집(삭제, 공개여부 수정) - 예은 editlist.js
+11. 친구 목록 편집(삭제, 공개여부 수정) - 예은 editlist.js // 완료
 
 12. 유저검색 - 차영 search.js
 
