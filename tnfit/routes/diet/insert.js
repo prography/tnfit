@@ -1,57 +1,71 @@
 // 식단 입력 - 예은 - insert.js
-/////// 차영언니가 음식별 영양정보를 보여준다고 했는데 그 이후에 몇 인분ㄷ
 const express = require('express');
 const router = express.Router();
 const db = require('../../module/pool.js');
 
-router.get('/:foodId', async (req, res) => {
-   let myId = req.body.myId;
-   let friendId = req.body.friendId;
-   let accept = req.body.accept; // 0이면 reject, 1이면 accept
-   let open = req.body.open;
+router.post('/', async (req, res) => {
+  let userId = req.body.userId;
+  let foodId = req.body.foodId;
+  let year = req.body.year;
+  let month = req.body.month;
+  let day = req.body.day;
+  let flag = req.body.flag; // 아침, 점심, 저녁, 간식
+  let unit = req.body.unit;
 
-   if (!friendId || !myId) {
-      res.status(400).send({
-         message : "Null Value"
+  let date = year + '-' + month + '-' + day;
+  console.log(date)
+
+  if (!userId || !foodId) {
+    res.status(400).send({
+       message : "Null Value"
+    });
+  } else {
+    let requestQuery1 = 'SELECT d_id FROM diet WHERE u_id = ? AND DATE(d_date) = ? AND d_flag = ?;'
+    let requestResult1 = await db.queryParam_Arr(requestQuery1, [userId, date, flag])
+
+    if (!requestResult1) {
+      res.status(500).send({
+        message : "Server error1"
       });
-   } else {
-     if (accept == 0){
-       let requestQuery1 = 'DELETE FROM request WHERE r_me = ? AND r_friend = ?;';
-       let requestQuery2 = 'UPDATE user SET u_frequest = u_frequest - 1 WHERE u_id = ?;'
-       let requestResult1 = await db.queryParam_Arr(requestQuery1, [myId, friendId]);
-       let requestResult2 = await db.queryParam_Arr(requestQuery2, [myId]);
+    } else {
+      if(requestResult1[0] == undefined){ // 기존에 d_id가 저장이 안 되어있을 경우
+        let requestQuery2 = 'INSERT INTO diet(u_id, d_date, d_flag) VALUES (?, ?, ?);'
+        let requestQuery3 = 'SELECT d_id FROM diet WHERE u_id = ? AND DATE(d_date) = ? AND d_flag = ?;'
 
-       if (!requestResult1 || !requestResult2) {
-         res.status(500).send({
-           message : "Server error"
-         });
-       } else {
-         res.status(201).send({
-           message : "ok"
-         });
-       }
-     }
-     else { // accept == 1
-       let requestQuery1 = 'INSERT INTO friendList(l_me, l_friend, l_open) VALUES (?, ?, ?);';
-       let requestQuery2 = 'INSERT INTO friendList(l_me, l_friend, l_open) VALUES (?, ?, (SELECT r_open FROM request WHERE r_me = ? AND r_friend = ?));';
-       let requestQuery3 = 'DELETE FROM request WHERE r_me = ? AND r_friend = ?;';
-       let requestQuery4 = 'UPDATE user SET u_frequest = u_frequest - 1 WHERE u_id = ?;'
-       let requestResult1 = await db.queryParam_Arr(requestQuery1, [myId, friendId, open]);
-       let requestResult2 = await db.queryParam_Arr(requestQuery2, [friendId, myId, myId, friendId]);
-       let requestResult3 = await db.queryParam_Arr(requestQuery3, [myId, friendId]);
-       let requestResult4 = await db.queryParam_Arr(requestQuery4, [myId]);
+        let requestResult2 = await db.queryParam_Arr(requestQuery2, [userId, date, flag])
+        let requestResult3 = await db.queryParam_Arr(requestQuery3, [userId, date, flag])
+        let d_id = requestResult3[0].d_id
 
-       if (!requestResult1 || !requestResult2 || !requestResult3 || !requestResult4) {
-         res.status(500).send({
-           message : "Server error"
-         });
-       } else {
-         res.status(201).send({
-           message : "ok"
-         });
-       }
-     }
-   }
+        let requestQuery4 = 'INSERT INTO ate(u_id, f_id, d_id, f_unit) VALUES (?, ?, ?, ?);'
+        let requestResult4 = await db.queryParam_Arr(requestQuery4, [userId, foodId, d_id, unit])
+
+        if (!requestResult2 || !requestResult3 || !requestResult4) {
+          res.status(500).send({
+            message : "Server error2"
+          });
+        } else {
+          res.status(201).send({
+            message : "ok"
+          });
+        }
+      }
+      else { // 기존 diet에 저장이 되어있을 때
+        let d_id = requestResult1[0].d_id
+        let requestQuery2 = 'INSERT INTO ate(u_id, f_id, d_id, f_unit) VALUES (?, ?, ?, ?);'
+        let requestResult2 = await db.queryParam_Arr(requestQuery2, [userId, foodId, d_id, unit])
+
+        if (!requestResult2) {
+          res.status(500).send({
+            message : "Server error2"
+          });
+        } else {
+          res.status(201).send({
+            message : "ok"
+          });
+        }
+      }
+    }
+  }
 });
 
 

@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   } else {
     let requestQuery1 = 'INSERT INTO friendList(l_me, l_friend, l_open) VALUES (?, ?, ?);';
     let requestQuery2 = 'DELETE FROM request WHERE r_me = ? AND r_friend = ?;';
-    let requestQuery3 = 'UPDATE user SET u_frequest = u_frequest - 1 WHERE u_id = ?;''
+    let requestQuery3 = 'UPDATE user SET u_frequest = u_frequest - 1 WHERE u_id = ?;'
     let requestResult1 = await db.queryParam_Arr(requestQuery1, [myId, friendId, open]);
     let requestResult2 = await db.queryParam_Arr(requestQuery2, [myId, friendId]);
     let requestResult3 = await db.queryParam_Arr(requestQuery3, [myId]);
