@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const crypto = require('crypto-promise'); 
+const crypto = require('crypto-promise');
 const db = require('../../module/pool.js');
 
 router.get('/:u_nickname',async (req,res)=>{
@@ -11,7 +11,7 @@ router.get('/:u_nickname',async (req,res)=>{
 			message : "Null Value"
 		})
 	}else{
-		let showQuery = 'SELECT u_nickname FROM user WHERE u_nickname like ?'
+		let showQuery = 'SELECT u_nickname, u_id FROM user WHERE u_nickname like ?'
 		let getList = await db.queryParam_Arr(showQuery,[u_nickname]);
 
 		if(!getList){
