@@ -22,7 +22,6 @@ router.post('/', async (req,res)=>{
   	}else{
       let hash = requestResult[0].u_pw
       let result = bcrypt.compareSync(u_pw, hash) // true false 반환
-      console.log(result)
 
       if (!result) {
         res.status(201).send({
