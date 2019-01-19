@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
      } else {
        res.status(201).send({
          message : "ok",
-         data : [{friendNicknames:requestResult}]
+         data : {friendNicknames:requestResult}
        });
      }
    }
