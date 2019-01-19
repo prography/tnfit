@@ -21,10 +21,6 @@ router.get('/',async (req,res)=>{
 		let getQuery = 'SELECT distinct ate.a_intime, ate.f_unit, food.f_cal, food.f_carbs,food.f_protein,food.f_fat,food.f_sugar,food.f_salt FROM food join ate WHERE food.f_id = ate.f_id and ate.d_id IN(SELECT d_id FROM diet WHERE u_id=? and date(d_date)=?)'
 		let getList = await db.queryParam_Arr(getQuery,[u_id,d_date]);		
 		
-		console.log(getList);
-		// let cntQuery = 'SELECT distinct ate.a_intime, ate.f_unit FROM food join ate WHERE food.f_id = ate.f_id and ate.d_id IN(SELECT d_id FROM diet WHERE u_id=? and date(d_date)=?)'
-		// let cntList = await db.queryParam_Arr(getQuery,[u_id,date]);		
-
 		if(!getList){
 			res.status(500).send({
 				message:"server error"
