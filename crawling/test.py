@@ -5,7 +5,6 @@ import pandas as pd
 import random
 import re # 정규표현식 모듈
 
-### 12000 - 15000까지 돌려봤는데 아무 것도 없었음
 start = 15000
 end = 16000
 
