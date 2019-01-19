@@ -5,13 +5,8 @@ import pandas as pd
 import random
 import re # 정규표현식 모듈
 
-<<<<<<< HEAD
-start = 12001
-=======
-### 12000 - 15000까지 돌려봤는데 아무 것도 없었음
-start = 14000
->>>>>>> d35dafcfda83fc0149c9ac54ba90288a6d4a80d0
-end = 15000
+start = 15000
+end = 16000
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -121,13 +116,7 @@ for i in l:
     lis.append(ng[0:len(ng)-2]) # salt
     lis2.append(lis)
 
-<<<<<<< HEAD
-data = pd.DataFrame(lis2)
-data.columns = ['index','name','cnt', 'unit','gram', 'cal', 'carbs','protein','fat','sugar','salt']
-data.to_csv('12001-15000.csv', encoding='utf-8')
-=======
 if flag == 0:
     data = pd.DataFrame(lis2)
     data.columns = ['index','name','cnt', 'unit','gram', 'cal', 'carbs','protein','fat','sugar','salt']
-    data.to_csv('13000-14000.csv', encoding='utf-8')
->>>>>>> d35dafcfda83fc0149c9ac54ba90288a6d4a80d0
+    data.to_csv('15000-16000.csv', encoding='utf-8')

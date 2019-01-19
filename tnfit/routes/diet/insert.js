@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 
     if (!requestResult1) {
       res.status(500).send({
-        message : "Server error1"
+        message : "Server error"
       });
     } else {
       if(requestResult1[0] == undefined){ // 기존에 d_id가 저장이 안 되어있을 경우
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 
         if (!requestResult2 || !requestResult3 || !requestResult4) {
           res.status(500).send({
-            message : "Server error2"
+            message : "Server error"
           });
         } else {
           res.status(201).send({
@@ -56,7 +56,7 @@ router.post('/', async (req, res) => {
 
         if (!requestResult2) {
           res.status(500).send({
-            message : "Server error2"
+            message : "Server error"
           });
         } else {
           res.status(201).send({
