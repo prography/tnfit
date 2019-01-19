@@ -1,57 +1,70 @@
-1. È¸¿ø°¡ÀÔ - °°ÀÌ join.js
+1. íšŒì›ê°€ìž… - ê°™ì´ join.js
 
-2. ·Î±×ÀÎ - °°ÀÌ login.js
+2. ë¡œê·¸ì¸ - ê°™ì´ login.js
 
-3. ·Î±×¾Æ¿ô - °°ÀÌ logout.js
+3. ë¡œê·¸ì•„ì›ƒ - ê°™ì´ logout.js
 
-4. È¸¿øÅ»Åð - °°ÀÌ withdrawal.js
+4. íšŒì›íƒˆí‡´ - ê°™ì´ withdrawal.js
 
-5. ºñ¹ø Ã£±â - °°ÀÌ findPw.js
+5. ë¹„ë²ˆ ì°¾ê¸° - ê°™ì´ findPw.js
 
-6. ¸¶ÀÌÆäÀÌÁö º¸¿©ÁÖ±â - Â÷¿µ show.js // ¿Ï·á/////////api
+6. ë§ˆì´íŽ˜ì´ì§€ ë³´ì—¬ì£¼ê¸° - ì°¨ì˜ show.js // ì™„ë£Œ/////////api
 
-7. ¸¶ÀÌÆäÀÌÁö ¼öÁ¤ÇÏ±â - ¿¹Àº edit.js // pw ºÎºÐ¸¸ °íÄ¡¸é µÊ
+7. ë§ˆì´íŽ˜ì´ì§€ ìˆ˜ì •í•˜ê¸° - ì˜ˆì€ edit.js // pw ë¶€ë¶„ë§Œ ê³ ì¹˜ë©´ ë¨
 
+<<<<<<< HEAD
+8. ì¹œêµ¬ìš”ì²­ ëª©ë¡ë³´ê¸° - ì˜ˆì€ requeslist.js // ì™„ë£Œ
+=======
 8. Ä£±¸¿äÃ» ¸ñ·Ïº¸±â - ¿¹Àº requeslist.js // Ä£±¸ ´Ð³×ÀÓ¸¸ º¸¿©ÁÖ¸é µÉÁö?
+>>>>>>> c2ef5f586ce46abdd80299c4542bd437336f95c8
 
-9. Ä£±¸¿äÃ» ¼ö¶ô/°ÅÀý - ¿¹Àº accept.js // ¿Ï·á
+9. ì¹œêµ¬ìš”ì²­ ìˆ˜ë½/ê±°ì ˆ - ì˜ˆì€ accept.js // ì™„ë£Œ
 
-10. Ä£±¸ ½Ä´Ü º¸±â - ¿¹Àº frienddiet.js 
+10. ì¹œêµ¬ ì‹ë‹¨ ë³´ê¸° - ì˜ˆì€ frienddiet.js
 
+<<<<<<< HEAD
+11. ì¹œêµ¬ ëª©ë¡ íŽ¸ì§‘(ì‚­ì œ, ê³µê°œì—¬ë¶€ ìˆ˜ì •) - ì˜ˆì€ editlist.js // ì™„ë£Œ
+=======
 11. Ä£±¸ ¸ñ·Ï ÆíÁý(»èÁ¦, °ø°³¿©ºÎ ¼öÁ¤) - ¿¹Àº editlist.js // ¿Ï·á
+>>>>>>> c2ef5f586ce46abdd80299c4542bd437336f95c8
 
-12. À¯Àú°Ë»ö - Â÷¿µ search.js //¿Ï·á ////////////api
+12. ìœ ì €ê²€ìƒ‰ - ì°¨ì˜ search.js //ì™„ë£Œ ////////////api
 
-13. À¯Àú Ä£±¸ Ãß°¡ ¿äÃ»(Å×ÀÌºí¿¡ ³Ö°í ¸¶ÀÌÆäÀÌÁö ¾Ë¸² ¼ö Áõ°¡, ¿ÀÇÂ ¿©ºÎ) - Â÷¿µ request.js // ¿Ï·á/////////api
+13. ìœ ì € ì¹œêµ¬ ì¶”ê°€ ìš”ì²­(í…Œì´ë¸”ì— ë„£ê³  ë§ˆì´íŽ˜ì´ì§€ ì•Œë¦¼ ìˆ˜ ì¦ê°€, ì˜¤í”ˆ ì—¬ë¶€) - ì°¨ì˜ request.js // ì™„ë£Œ/////////api
 
-14. ³» Ä£±¸ ¸ñ·Ï º¸±â - Â÷¿µ friendlist.js // ¿Ï·á ////////////api
+14. ë‚´ ì¹œêµ¬ ëª©ë¡ ë³´ê¸° - ì°¨ì˜ friendlist.js // ì™„ë£Œ ////////////api
 
+<<<<<<< HEAD
+15. ì‹ë‹¨ ìž…ë ¥ - ì˜ˆì€ - insert.js // ì™„ë£Œ
+=======
 15. ½Ä´Ü ÀÔ·Â - ¿¹Àº - insert.js
+>>>>>>> c2ef5f586ce46abdd80299c4542bd437336f95c8
 
-16. ¿µ¾çÁ¤º¸ º¸¿©ÁÖ±â (À½½ÄÇÏ³ª´ç) - Â÷¿µ - showdiet.js // ¿Ï·á -> ÇÑ±Û¾Èº¸ÀÓ!!!!!!!!!!!!!!//api
+16. ì˜ì–‘ì •ë³´ ë³´ì—¬ì£¼ê¸° (ìŒì‹í•˜ë‚˜ë‹¹) - ì°¨ì˜ - showdiet.js // ì™„ë£Œ -> í•œê¸€ì•ˆë³´ìž„!!!!!!!!!!!!!!//api
 
-17.18 ÀÏ, ÁÖº° Ä®·Î¸® Á¤º¸ º¸¿©ÁÖ±â - Â÷¿µ -showday.js,
-					   -showweek.js
+17. ì¼ë³„ ì¹¼ë¡œë¦¬ ì •ë³´ ë³´ì—¬ì£¼ê¸° - ì°¨ì˜ -showday.js
 
-19. ¾ÆÄ§, Á¡½É, Àú³á °£½Ä º°·Î ÇÑ³¢´ç Á¤º¸ º¸¿©ÁÖ±â - showmeal.js //¿Ï·á /////////////api
+18. ì£¼ë³„ ì¹¼ë¡œë¦¬ ì •ë³´ ë³´ì—¬ì£¼ê¸° - ì˜ˆì€ -showweek.js
 
-20. À½½Ä °Ë»ö - searchdiet.js///////ÀÌ¸§ °¡Á®¿À´Â°Å ¿Ï·á////api
+19. ì•„ì¹¨, ì ì‹¬, ì €ë… ê°„ì‹ ë³„ë¡œ í•œë¼ë‹¹ ì •ë³´ ë³´ì—¬ì£¼ê¸° - showmeal.js //ì™„ë£Œ /////////////api
 
-·Î±×ÀÎ
-È¸¿ø°¡ÀÔ
-email(CheckÇÊ¿ä), nickname(CheckÇÊ¿ä), pw, ¼ºº°, ³ªÀÌ, Å°, ¸ö¹«°Ô
+20. ìŒì‹ ê²€ìƒ‰ - searchdiet.js///////ì´ë¦„ ê°€ì ¸ì˜¤ëŠ”ê±° ì™„ë£Œ////api
 
-¸¶ÀÌÆäÀÌÁö ¹× ¿É¼Ç
-´Ð³×ÀÓ ¼öÁ¤
-¼ºº°, Å°, ¸ö¹«°Ô ¼³Á¤
-Ä£±¸ ¿äÃ» push ¾Ë¸² ¼³Á¤
-È¸¿øÅ»Åð
+ë¡œê·¸ì¸
+íšŒì›ê°€ìž…
+email(Checkí•„ìš”), nickname(Checkí•„ìš”), pw, ì„±ë³„, ë‚˜ì´, í‚¤, ëª¸ë¬´ê²Œ
 
-Ä£±¸Ã¢
-À¯Àú °Ë»ö ¹× Ãß°¡(Ãß°¡ÇÒ¶§ ½Ä´Ü °ø°³ ¿©ºÎ ¼³Á¤)
-Ä£±¸ ¸ñ·Ï
-Ä£±¸ ÆíÁý(»èÁ¦ ¹× ½Ä´Ü °ø°³ ¿©ºÎ ¼öÁ¤)
+ë§ˆì´íŽ˜ì´ì§€ ë° ì˜µì…˜
+ë‹‰ë„¤ìž„ ìˆ˜ì •
+ì„±ë³„, í‚¤, ëª¸ë¬´ê²Œ ì„¤ì •
+ì¹œêµ¬ ìš”ì²­ push ì•Œë¦¼ ì„¤ì •
+íšŒì›íƒˆí‡´
 
-½Ä´Ü ÀÔ·Â(³¯Â¥ ¹× Á¶Áß¼®½Ä ¼³Á¤ ÈÄ ÀÚµ¿¿Ï¼º°Ë»ö, ¼·Ãë·® ¼³Á¤)
-->Á¶Áß¼®½ÄÀÌ ¾Æ´Ñ °£½ÄÀÌ³ª ¾ß½ÄÀÇ °æ¿ì Ãß°¡³¢´Ï ¼±ÅÃÇØ¼­ ÀÔ·Â
-³¢´Ï, ÀÏ, ÁÖ º° Ä®·Î¸® ¼·Ãë·® È®ÀÎ
+ì¹œêµ¬ì°½
+ìœ ì € ê²€ìƒ‰ ë° ì¶”ê°€(ì¶”ê°€í• ë•Œ ì‹ë‹¨ ê³µê°œ ì—¬ë¶€ ì„¤ì •)
+ì¹œêµ¬ ëª©ë¡
+ì¹œêµ¬ íŽ¸ì§‘(ì‚­ì œ ë° ì‹ë‹¨ ê³µê°œ ì—¬ë¶€ ìˆ˜ì •)
+
+ì‹ë‹¨ ìž…ë ¥(ë‚ ì§œ ë° ì¡°ì¤‘ì„ì‹ ì„¤ì • í›„ ìžë™ì™„ì„±ê²€ìƒ‰, ì„­ì·¨ëŸ‰ ì„¤ì •)
+->ì¡°ì¤‘ì„ì‹ì´ ì•„ë‹Œ ê°„ì‹ì´ë‚˜ ì•¼ì‹ì˜ ê²½ìš° ì¶”ê°€ë¼ë‹ˆ ì„ íƒí•´ì„œ ìž…ë ¥
+ë¼ë‹ˆ, ì¼, ì£¼ ë³„ ì¹¼ë¡œë¦¬ ì„­ì·¨ëŸ‰ í™•ì¸

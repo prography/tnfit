@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const crypto = require('crypto-promise'); 
+const crypto = require('crypto-promise');
 const db = require('../../module/pool.js');
 
 router.get('/:f_name',async (req,res)=>{
