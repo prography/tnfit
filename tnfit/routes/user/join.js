@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const crypto = require('crypto-promise'); 
+const crypto = require('crypto-promise');
 const db = require('../../module/pool.js');
 const bcrypt = require('bcrypt-nodejs');
 const saltRounds = 10; // default 10
@@ -34,7 +34,7 @@ router.post('/',async (req,res)=>{
 				message:"ok"
 			})
 		}
-		
+
 	}
 });
 

@@ -20,7 +20,7 @@ router.get('/:f_id',async (req,res)=>{
 		}else{
 			res.status(201).send({
 				message:"ok",
-				data:getList
+				data:getList[0]
 			})
 		}
 	}
