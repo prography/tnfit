@@ -11,7 +11,7 @@ router.get('/:f_name',async (req,res)=>{
 			message : "Null Value"
 		})
 	}else{
-		let showQuery = 'SELECT f_name FROM food WHERE f_name like ?'
+		let showQuery = 'SELECT f_name, f_id FROM food WHERE f_name like ?'
 		let getList = await db.queryParam_Arr(showQuery,[f_name]);
 
 		if(!getList){
