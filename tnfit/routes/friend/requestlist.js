@@ -11,7 +11,7 @@ router.get('/:id', async (req, res) => {
          message : "Null Value"
       });
    } else {
-     let requestQuery = 'SELECT user.u_nickname FROM user, request WHERE request.r_me = ? AND request.r_friend = user.u_id;'
+     let requestQuery = 'SELECT user.u_nickname, user.u_id FROM user, request WHERE request.r_me = ? AND request.r_friend = user.u_id;'
      let requestResult = await db.queryParam_Arr(requestQuery, [myId]);
 
      if (!requestResult) {
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
      } else {
        res.status(201).send({
          message : "ok",
-         data : {friendNicknames:requestResult}
+         data : {friends:requestResult}
        });
      }
    }

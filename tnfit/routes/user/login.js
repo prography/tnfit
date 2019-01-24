@@ -26,11 +26,14 @@ router.post('/', async (req,res)=>{
       if (!result) {
         res.status(201).send({
           message:"ok",
-          data: 0
+          flag: 0
         })
       } else {
         let loginQuery = "UPDATE user SET u_state = 0 WHERE u_email = ?;"
+        let useridQuery = "SELECT u_id FROM user WHERE u_email = ?;"
         let loginResult = await db.queryParam_Arr(loginQuery, [u_email])
+        let useridResult = await db.queryParam_Arr(useridQuery, [u_email])
+
 
         if (!loginResult){
           res.status(500).send({
@@ -40,7 +43,8 @@ router.post('/', async (req,res)=>{
         else {
           res.status(201).send({
       			message:"ok",
-            data: 1
+            flag: 1,
+            data: useridResult[0]
       		})
         }
       }
