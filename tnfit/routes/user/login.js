@@ -35,7 +35,7 @@ router.post('/', async (req,res)=>{
         let useridResult = await db.queryParam_Arr(useridQuery, [u_email])
 
 
-        if (!loginResult){
+        if (!loginResult || !useridResult){
           res.status(500).send({
       			message:"server error"
       		})
