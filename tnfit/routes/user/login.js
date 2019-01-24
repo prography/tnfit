@@ -30,7 +30,7 @@ router.post('/', async (req,res)=>{
         })
       } else {
         let loginQuery = "UPDATE user SET u_state = 0 WHERE u_email = ?;"
-        let useridQuery = "SELECT u_id FROM user WHERE u_email = ?;"
+        let useridQuery = "SELECT u_id, u_nickname FROM user WHERE u_email = ?;"
         let loginResult = await db.queryParam_Arr(loginQuery, [u_email])
         let useridResult = await db.queryParam_Arr(useridQuery, [u_email])
 
