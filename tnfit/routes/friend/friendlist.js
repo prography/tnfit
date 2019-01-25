@@ -10,7 +10,7 @@ router.get('/:l_me',async (req,res)=>{
 			message : "Null Value"
 		})
 	}else{
-		let showQuery = 'SELECT distinct u_nickname FROM friendList join user WHERE l_me = ? and l_friend = u_id'
+		let showQuery = 'SELECT distinct u_nickname,u_id FROM friendList join user WHERE l_me = ? and l_friend = u_id'
 		let getList = await db.queryParam_Arr(showQuery,[l_me]);
 
 		if(!getList){
