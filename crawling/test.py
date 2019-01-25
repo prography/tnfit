@@ -5,8 +5,8 @@ import pandas as pd
 import random
 import re # 정규표현식 모듈
 
-start = 15000
-end = 16000
+start = 20000
+end = 30000
 
 l = [i for i in range(start, end)]
 random.shuffle(l)
@@ -35,14 +35,12 @@ for i in l:
     if trs[0].find('td').text == '':
         continue
     lis.append(i) # idx
-    print(i, end=' ')
     for tr in trs:
 
         th = tr.find('th').text
         td = tr.find('td').text.strip()
         if th == "음식명":
             lis.append(td) # name
-            print(td, end=' ')
         if th == "단위":
             # 1인분(180g)을 1/인분/180g으로 분리하여 저장
             wunit = td.split("(")
@@ -52,10 +50,8 @@ for i in l:
             cnt_temp = re.match('[0-9.]+', first)
             cnt = cnt_temp.group()
             lis.append(cnt) # cnt
-            print(cnt, end=' ')
             cunit = first[len(cnt):]
             lis.append(cunit) # unit
-            print(cunit)
 
             vol_temp = re.match('[0-9]+', second)
             vol = vol_temp.group()
@@ -119,4 +115,4 @@ for i in l:
 if flag == 0:
     data = pd.DataFrame(lis2)
     data.columns = ['index','name','cnt', 'unit','gram', 'cal', 'carbs','protein','fat','sugar','salt']
-    data.to_csv('15000-16000.csv', encoding='utf-8')
+    data.to_csv('20000-30000.csv', encoding='utf-8')
