@@ -11,7 +11,7 @@ router.get('/:id', async (req, res) => {
          message : "Null Value"
       });
    } else {
-     let requestQuery = 'SELECT user.u_nickname FROM user, request WHERE request.r_me = ? AND request.r_friend = user.u_id;'
+     let requestQuery = 'SELECT user.u_nickname FROM user, request WHERE request.r_friend = ? AND request.r_me = user.u_id;'
      let requestResult = await db.queryParam_Arr(requestQuery, [myId]);
 
      if (!requestResult) {
